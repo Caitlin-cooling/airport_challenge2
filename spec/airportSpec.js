@@ -7,16 +7,16 @@ describe('Airport', function() {
 
   describe('capacity', function() {
     it('has a default capacity', function() {
-      expect(airport.capacity()).toBe(10)
-    })
+      expect(airport.getCapacity()).toBe(10)
+    });
 
     it('set capacity', function(){
-      expect(airport.capacity(20)).toBe(20)
-      expect(airport.capacity(50)).toBe(50)
+      expect(airport.getCapacity(20)).toBe(20)
+      expect(airport.getCapacity(50)).toBe(50)
     });
 
-    it('can tell when the airport is full', function() {
-
-    });
+    // it('can tell when the airport is full', function() {
+    //   spyOn(airport, "land").and.returnValue(1);
+    // });
   });
 });
