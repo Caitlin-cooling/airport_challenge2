@@ -1,18 +1,15 @@
 var Plane = function(){
+  this.status = "Landed"
 };
 
-Plane.prototype.status = function () {
-  if(status === '') {
-    return"Landed"
-  } else {
-    return status
-  }
+Plane.prototype.getStatus = function () {
+  return this.status
 };
 
 Plane.prototype.takeOff = function() {
-  status = "Flying"
+  this.status = "Flying"
 };
 
 Plane.prototype.land = function() {
-  status = "Landed"
+  this.status = "Landed"
 };
