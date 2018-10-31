@@ -14,29 +14,11 @@ describe('Airport', function() {
       expect(airport.getCapacity(20)).toBe(20)
       expect(airport.getCapacity(50)).toBe(50)
     });
-
-    it('adds a plane to the hangar when it lands', function() {
-      var plane = jasmine.createSpyObj('plane', ['land']);
-      plane.land.and.callFake(function() {
-        return "1";
-      });
-      
-      airport.addPlane(plane)
-      expect(airport.getHangar()).toEqual(1)
-    });
   });
 
-  describe('isFull', function() {
-    it('returns true when the hangar is full', function() {
-      var plane = jasmine.createSpyObj('plane', ['land']);
-      plane.land.and.callFake(function() {
-        return "1";
+    describe('getHangar', function(){
+      it('adds a plane to the hangar when it lands', function() {
+        expect(airport.getHangar()).toEqual(0)
       });
-
-      for (var i = 0; i < 11; i++) {
-        airport.addPlane(plane)
-      }
-      expect(airport.isFull()).toBe(true)
     });
   });
-});
