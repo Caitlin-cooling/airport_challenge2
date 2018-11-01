@@ -1,5 +1,4 @@
 describe("Plane", function() {
-  var plane;
 
   beforeEach(function(){
     plane = new Plane();
@@ -19,7 +18,7 @@ describe("Plane", function() {
   });
 
   describe('landing a plane', function() {
-    it('changes to landed when the plane lands', function() {
+    it('status changes to landed', function() {
       var weather = this.goodWeather.getWeather();
       plane.takeOff(this.airport, weather)
       plane.land(this.airport)
@@ -41,7 +40,7 @@ describe("Plane", function() {
   });
 
   describe('taking off a plane', function(){
-    it('changes to flying when the plane takes off', function() {
+    it('status changes to flying', function() {
       var weather = this.goodWeather.getWeather();
       plane.takeOff(this.airport, weather)
       expect(plane.getStatus()).toBe("Flying")
