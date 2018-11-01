@@ -9,32 +9,18 @@ Plane.prototype.getStatus = function () {
 
 Plane.prototype.takeOff = function(airport, weather) {
   var hangar = airport.getHangar();
-
-  if (weather == "Stormy") {
-    var badWeather = new Error('Cannot take off: the weather is stormy')
-    throw badWeather;
-  } else if(this.status == "Landed") {
-      this.status = "Flying"
-      hangar.pop()
-  } else if (this.status = "Flying"){
-      var flying = new Error("Cannot take off: plane flying")
-      throw flying;
-  };
+  if (weather == "Stormy") throw 'Cannot take off: the weather is stormy';
+  if (this.status == "Flying") throw "Cannot take off: plane flying"
+  this.status = "Flying"
+  hangar.pop()
 };
 
 Plane.prototype.land = function(airport, weather) {
   var hangar = airport.getHangar();
   var capacity = airport.getCapacity();
 
-  if(hangar.length >= capacity) {
-    var full = new Error("Cannot land: airport full")
-    throw full;
-  } else {
-    this.status = "Landed"
-    hangar.push(this)
-  };
-  if(weather == 'Stormy'){
-    var badWeather = new Error('Cannot take off: the weather is stormy')
-    throw badWeather;
-  };
+  if(hangar.length >= capacity) throw "Cannot land: airport full";
+  if(weather == 'Stormy') throw 'Cannot take off: the weather is stormy';
+  this.status = "Landed"
+  hangar.push(this)
 };
