@@ -21,7 +21,7 @@ describe("Plane", function() {
   describe('landing a plane', function() {
     it('changes to landed when the plane lands', function() {
       var weather = this.goodWeather.getWeather();
-      plane.takeOff(weather)
+      plane.takeOff(this.airport, weather)
       plane.land(this.airport)
       expect(plane.getStatus()).toBe("Landed")
     });
@@ -36,26 +36,26 @@ describe("Plane", function() {
 
     it('raises an error if the weather is stormy', function() {
       var weather = this.badWeather.getWeather();
-      expect(function() {plane.takeOff(weather)}).toThrow(new Error('Cannot take off: the weather is stormy'))
+      expect(function() {plane.takeOff(this.airport, weather)}).toThrow(new Error('Cannot take off: the weather is stormy'))
     });
   });
 
   describe('taking off a plane', function(){
     it('changes to flying when the plane takes off', function() {
       var weather = this.goodWeather.getWeather();
-      plane.takeOff(weather)
+      plane.takeOff(this.airport, weather)
       expect(plane.getStatus()).toBe("Flying")
     });
 
     it('raises error if a flying plane tries to take off', function() {
       var weather = this.goodWeather.getWeather();
-      plane.takeOff(weather)
-      expect(function() {plane.takeOff(weather)}).toThrow(new Error("Cannot take off: plane flying"))
+      plane.takeOff(this.airport, weather)
+      expect(function() {plane.takeOff(this.airport, weather)}).toThrow(new Error("Cannot take off: plane flying"))
     });
 
     it('raises an error if the weather is stormy', function() {
       var weather = this.badWeather.getWeather();
-      expect(function() {plane.takeOff(weather)}).toThrow(new Error('Cannot take off: the weather is stormy'))
+      expect(function() {plane.takeOff(this.airport, weather)}).toThrow(new Error('Cannot take off: the weather is stormy'))
     });
   });
 });

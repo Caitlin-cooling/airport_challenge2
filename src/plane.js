@@ -7,12 +7,15 @@ Plane.prototype.getStatus = function () {
   return this.status
 };
 
-Plane.prototype.takeOff = function(weather) {
+Plane.prototype.takeOff = function(airport, weather) {
+  var hangar = airport.getHangar();
+
   if (weather == "Stormy") {
     var badWeather = new Error('Cannot take off: the weather is stormy')
     throw badWeather;
   } else if(this.status == "Landed") {
       this.status = "Flying"
+      hangar.pop()
   } else if (this.status = "Flying"){
       var flying = new Error("Cannot take off: plane flying")
       throw flying;
