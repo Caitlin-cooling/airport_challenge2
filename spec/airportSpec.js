@@ -1,12 +1,14 @@
 describe('Airport', function() {
 
+  DEFAULT_CAPACITY = 10;
+
   beforeEach(function() {
     airport = new Airport;
   });
 
   describe('capacity', function() {
     it('has a default capacity', function() {
-      expect(airport.getCapacity()).toBe(10)
+      expect(airport.getCapacity()).toBe(DEFAULT_CAPACITY)
     });
 
     it('set capacity', function(){

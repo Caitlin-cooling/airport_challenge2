@@ -1,10 +1,11 @@
 var Airport = function(){
-  this.capacity = 10;
+  DEFAULT_CAPACITY = 10;
+  this.capacity = DEFAULT_CAPACITY ;
   this.hangar = [];
 };
 
 Airport.prototype.getCapacity = function (number) {
-  this.capacity = number || 10
+  this.capacity = number || DEFAULT_CAPACITY
   return this.capacity
 };
 

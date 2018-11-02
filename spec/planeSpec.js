@@ -3,7 +3,6 @@ describe("Plane", function() {
   var airport;
   var badWeather;
   var goodWeather;
-
   airport = jasmine.createSpyObj('airport', ['getHangar', 'getCapacity']);
   airport.getHangar.and.callFake(function() {return []; });
   airport.getCapacity.and.callFake(function() {return 10; });
@@ -34,7 +33,6 @@ describe("Plane", function() {
       airport = jasmine.createSpyObj('airport', ['getHangar', 'getCapacity']);
       airport.getHangar.and.callFake(function() {return []; });
       airport.getCapacity.and.callFake(function() {return 0; });
-
       expect(function(){plane.land(airport)}).toThrow("Cannot land: airport full")
     });
 
